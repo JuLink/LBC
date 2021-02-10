@@ -3,27 +3,75 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		906AC5E225D2DA8600708FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AC5E125D2DA8600708FB1 /* AppDelegate.swift */; };
 		906AC5E425D2DA8600708FB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AC5E325D2DA8600708FB1 /* SceneDelegate.swift */; };
-		906AC5E625D2DA8600708FB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AC5E525D2DA8600708FB1 /* ViewController.swift */; };
-		906AC5E925D2DA8600708FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906AC5E725D2DA8600708FB1 /* Main.storyboard */; };
 		906AC5EB25D2DA8700708FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 906AC5EA25D2DA8700708FB1 /* Assets.xcassets */; };
 		906AC5EE25D2DA8700708FB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906AC5EC25D2DA8700708FB1 /* LaunchScreen.storyboard */; };
+		906AC5F925D2DEA400708FB1 /* OffersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AC5F825D2DEA400708FB1 /* OffersListViewController.swift */; };
+		906AC60725D2E09100708FB1 /* LBCDataProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906AC60025D2E09100708FB1 /* LBCDataProvider.framework */; };
+		906AC60825D2E09100708FB1 /* LBCDataProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 906AC60025D2E09100708FB1 /* LBCDataProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		906AC61025D2E0BF00708FB1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AC60F25D2E0BF00708FB1 /* Model.swift */; };
+		906AC62725D2F29E00708FB1 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AC62625D2F29E00708FB1 /* DataProvider.swift */; };
+		9078C8CF25D3D18900701232 /* LBCDataProviderDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9078C8CE25D3D18900701232 /* LBCDataProviderDecoderTests.swift */; };
+		9078C8D125D3D18900701232 /* LBCDataProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906AC60025D2E09100708FB1 /* LBCDataProvider.framework */; platformFilter = ios; };
+		9078C8DC25D3D98F00701232 /* Category.json in Resources */ = {isa = PBXBuildFile; fileRef = 9078C8DB25D3D98F00701232 /* Category.json */; };
+		9078C8E025D3D9B000701232 /* Offers.json in Resources */ = {isa = PBXBuildFile; fileRef = 9078C8DF25D3D9B000701232 /* Offers.json */; };
+		90A4A17825D2F341000C09E2 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A4A17725D2F341000C09E2 /* Networking.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		906AC60525D2E09100708FB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 906AC5D625D2DA8600708FB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 906AC5FF25D2E09100708FB1;
+			remoteInfo = LBCNetwork;
+		};
+		9078C8D225D3D18900701232 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 906AC5D625D2DA8600708FB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 906AC5FF25D2E09100708FB1;
+			remoteInfo = LBCDataProvider;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		906AC60C25D2E09100708FB1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				906AC60825D2E09100708FB1 /* LBCDataProvider.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		906AC5DE25D2DA8600708FB1 /* LeBonCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBonCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906AC5E125D2DA8600708FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		906AC5E325D2DA8600708FB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		906AC5E525D2DA8600708FB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		906AC5E825D2DA8600708FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		906AC5EA25D2DA8700708FB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		906AC5ED25D2DA8700708FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		906AC5EF25D2DA8700708FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		906AC5F825D2DEA400708FB1 /* OffersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersListViewController.swift; sourceTree = "<group>"; };
+		906AC60025D2E09100708FB1 /* LBCDataProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LBCDataProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		906AC60325D2E09100708FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		906AC60F25D2E0BF00708FB1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		906AC62625D2F29E00708FB1 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		9078C8CC25D3D18900701232 /* LBCDataProviderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LBCDataProviderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9078C8CE25D3D18900701232 /* LBCDataProviderDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCDataProviderDecoderTests.swift; sourceTree = "<group>"; };
+		9078C8D025D3D18900701232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9078C8DB25D3D98F00701232 /* Category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Category.json; sourceTree = "<group>"; };
+		9078C8DF25D3D9B000701232 /* Offers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Offers.json; sourceTree = "<group>"; };
+		90A4A17725D2F341000C09E2 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +79,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				906AC60725D2E09100708FB1 /* LBCDataProvider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		906AC5FD25D2E09100708FB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9078C8C925D3D18900701232 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9078C8D125D3D18900701232 /* LBCDataProvider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				906AC5E025D2DA8600708FB1 /* LeBonCoin */,
+				906AC60125D2E09100708FB1 /* LBCDataProvider */,
+				9078C8CD25D3D18900701232 /* LBCDataProviderTests */,
 				906AC5DF25D2DA8600708FB1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				906AC5DE25D2DA8600708FB1 /* LeBonCoin.app */,
+				906AC60025D2E09100708FB1 /* LBCDataProvider.framework */,
+				9078C8CC25D3D18900701232 /* LBCDataProviderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,16 +126,47 @@
 			children = (
 				906AC5E125D2DA8600708FB1 /* AppDelegate.swift */,
 				906AC5E325D2DA8600708FB1 /* SceneDelegate.swift */,
-				906AC5E525D2DA8600708FB1 /* ViewController.swift */,
-				906AC5E725D2DA8600708FB1 /* Main.storyboard */,
 				906AC5EA25D2DA8700708FB1 /* Assets.xcassets */,
 				906AC5EC25D2DA8700708FB1 /* LaunchScreen.storyboard */,
 				906AC5EF25D2DA8700708FB1 /* Info.plist */,
+				906AC5F825D2DEA400708FB1 /* OffersListViewController.swift */,
 			);
 			path = LeBonCoin;
 			sourceTree = "<group>";
 		};
+		906AC60125D2E09100708FB1 /* LBCDataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				906AC60325D2E09100708FB1 /* Info.plist */,
+				906AC60F25D2E0BF00708FB1 /* Model.swift */,
+				906AC62625D2F29E00708FB1 /* DataProvider.swift */,
+				90A4A17725D2F341000C09E2 /* Networking.swift */,
+			);
+			path = LBCDataProvider;
+			sourceTree = "<group>";
+		};
+		9078C8CD25D3D18900701232 /* LBCDataProviderTests */ = {
+			isa = PBXGroup;
+			children = (
+				9078C8CE25D3D18900701232 /* LBCDataProviderDecoderTests.swift */,
+				9078C8D025D3D18900701232 /* Info.plist */,
+				9078C8DB25D3D98F00701232 /* Category.json */,
+				9078C8DF25D3D9B000701232 /* Offers.json */,
+			);
+			path = LBCDataProviderTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		906AC5FB25D2E09100708FB1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		906AC5DD25D2DA8600708FB1 /* LeBonCoin */ = {
@@ -77,15 +176,53 @@
 				906AC5DA25D2DA8600708FB1 /* Sources */,
 				906AC5DB25D2DA8600708FB1 /* Frameworks */,
 				906AC5DC25D2DA8600708FB1 /* Resources */,
+				906AC60C25D2E09100708FB1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				906AC60625D2E09100708FB1 /* PBXTargetDependency */,
 			);
 			name = LeBonCoin;
 			productName = LeBonCoin;
 			productReference = 906AC5DE25D2DA8600708FB1 /* LeBonCoin.app */;
 			productType = "com.apple.product-type.application";
+		};
+		906AC5FF25D2E09100708FB1 /* LBCDataProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 906AC60925D2E09100708FB1 /* Build configuration list for PBXNativeTarget "LBCDataProvider" */;
+			buildPhases = (
+				906AC5FB25D2E09100708FB1 /* Headers */,
+				906AC5FC25D2E09100708FB1 /* Sources */,
+				906AC5FD25D2E09100708FB1 /* Frameworks */,
+				906AC5FE25D2E09100708FB1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LBCDataProvider;
+			productName = LBCNetwork;
+			productReference = 906AC60025D2E09100708FB1 /* LBCDataProvider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9078C8CB25D3D18900701232 /* LBCDataProviderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9078C8D425D3D18900701232 /* Build configuration list for PBXNativeTarget "LBCDataProviderTests" */;
+			buildPhases = (
+				9078C8C825D3D18900701232 /* Sources */,
+				9078C8C925D3D18900701232 /* Frameworks */,
+				9078C8CA25D3D18900701232 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9078C8D325D3D18900701232 /* PBXTargetDependency */,
+			);
+			name = LBCDataProviderTests;
+			productName = LBCDataProviderTests;
+			productReference = 9078C8CC25D3D18900701232 /* LBCDataProviderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -97,6 +234,13 @@
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					906AC5DD25D2DA8600708FB1 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					906AC5FF25D2E09100708FB1 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+					9078C8CB25D3D18900701232 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -115,6 +259,8 @@
 			projectRoot = "";
 			targets = (
 				906AC5DD25D2DA8600708FB1 /* LeBonCoin */,
+				906AC5FF25D2E09100708FB1 /* LBCDataProvider */,
+				9078C8CB25D3D18900701232 /* LBCDataProviderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -126,7 +272,22 @@
 			files = (
 				906AC5EE25D2DA8700708FB1 /* LaunchScreen.storyboard in Resources */,
 				906AC5EB25D2DA8700708FB1 /* Assets.xcassets in Resources */,
-				906AC5E925D2DA8600708FB1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		906AC5FE25D2E09100708FB1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9078C8CA25D3D18900701232 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9078C8E025D3D9B000701232 /* Offers.json in Resources */,
+				9078C8DC25D3D98F00701232 /* Category.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +298,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				906AC5E625D2DA8600708FB1 /* ViewController.swift in Sources */,
 				906AC5E225D2DA8600708FB1 /* AppDelegate.swift in Sources */,
+				906AC5F925D2DEA400708FB1 /* OffersListViewController.swift in Sources */,
 				906AC5E425D2DA8600708FB1 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		906AC5FC25D2E09100708FB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90A4A17825D2F341000C09E2 /* Networking.swift in Sources */,
+				906AC62725D2F29E00708FB1 /* DataProvider.swift in Sources */,
+				906AC61025D2E0BF00708FB1 /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9078C8C825D3D18900701232 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9078C8CF25D3D18900701232 /* LBCDataProviderDecoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		906AC5E725D2DA8600708FB1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				906AC5E825D2DA8600708FB1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		906AC60625D2E09100708FB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 906AC5FF25D2E09100708FB1 /* LBCDataProvider */;
+			targetProxy = 906AC60525D2E09100708FB1 /* PBXContainerItemProxy */;
 		};
+		9078C8D325D3D18900701232 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 906AC5FF25D2E09100708FB1 /* LBCDataProvider */;
+			targetProxy = 9078C8D225D3D18900701232 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		906AC5EC25D2DA8700708FB1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -284,6 +469,7 @@
 		906AC5F325D2DA8700708FB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +489,7 @@
 		906AC5F425D2DA8700708FB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -313,6 +500,105 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.bryo.LeBonCoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		906AC60A25D2E09100708FB1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2P96J23NS3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LBCDataProvider/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.bryo.LBCNetwork;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		906AC60B25D2E09100708FB1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2P96J23NS3;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LBCDataProvider/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.bryo.LBCNetwork;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9078C8D525D3D18900701232 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2P96J23NS3;
+				INFOPLIST_FILE = LBCDataProviderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.bryo.LBCDataProviderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9078C8D625D3D18900701232 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2P96J23NS3;
+				INFOPLIST_FILE = LBCDataProviderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.bryo.LBCDataProviderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -336,6 +622,24 @@
 			buildConfigurations = (
 				906AC5F325D2DA8700708FB1 /* Debug */,
 				906AC5F425D2DA8700708FB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		906AC60925D2E09100708FB1 /* Build configuration list for PBXNativeTarget "LBCDataProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				906AC60A25D2E09100708FB1 /* Debug */,
+				906AC60B25D2E09100708FB1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9078C8D425D3D18900701232 /* Build configuration list for PBXNativeTarget "LBCDataProviderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9078C8D525D3D18900701232 /* Debug */,
+				9078C8D625D3D18900701232 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
