@@ -44,6 +44,7 @@ class LBCDataProviderDecoderTests: XCTestCase {
     func testDecoderCategories() throws {
         //Given
         let networkStub = NetworkStub()
+        let sut = JSONDecoder()
         
         let expectation = self.expectation(description: "Fake network should return data")
         var networkfakeResult: Result<Data, Error>?
@@ -55,8 +56,7 @@ class LBCDataProviderDecoderTests: XCTestCase {
         let networkResult = try XCTUnwrap(networkfakeResult)
         
         //When
-        let decodedDataResult: Result<[LBCDataProvider.Category], Error> = JSONDecoder().decode(data: networkResult)
-        
+        let decodedDataResult: Result<[LBCDataProvider.Category], Error> = sut.decode(data: networkResult)
         
         //Then
         switch decodedDataResult {
@@ -74,6 +74,7 @@ class LBCDataProviderDecoderTests: XCTestCase {
     func testDecoderOffers() throws {
         //Given
         let networkStub = NetworkStub()
+        let sut = JSONDecoder()
         
         let expectation = self.expectation(description: "Fake network should return data")
         var networkfakeResult: Result<Data, Error>?
@@ -85,7 +86,7 @@ class LBCDataProviderDecoderTests: XCTestCase {
         let networkResult = try XCTUnwrap(networkfakeResult)
         
         //When
-        let decodedDataResult: Result<[LBCDataProvider.Offer], Error> = JSONDecoder().decode(data: networkResult)
+        let decodedDataResult: Result<[LBCDataProvider.Offer], Error> = sut.decode(data: networkResult)
         
         
         //Then
@@ -116,9 +117,8 @@ class LBCDataProviderDecoderTests: XCTestCase {
         
         waitForExpectations(timeout: 5, handler: nil)
         
-        let decodedDataResult = try XCTUnwrap(offersResult)
-        
         //Then
+        let decodedDataResult = try XCTUnwrap(offersResult)
         switch decodedDataResult {
         case .success(let offers):
             XCTAssertNotEqual(offers.count, 0)

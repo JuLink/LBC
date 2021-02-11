@@ -18,8 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) {
             //Handled in the Scene delegate
         } else {
+            
+            let splitVC = UISplitViewController()
+            splitVC.viewControllers = [UINavigationController(rootViewController: OffersListViewController())]
+            splitVC.preferredDisplayMode = .allVisible
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = UINavigationController(rootViewController: OffersListViewController())
+            self.window?.rootViewController = splitVC
             self.window?.makeKeyAndVisible()
         }
         
