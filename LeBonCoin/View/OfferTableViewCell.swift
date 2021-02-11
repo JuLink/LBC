@@ -61,11 +61,16 @@ class OfferTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(title: String, category: String, price: String, image: UIImage?) {
+    func setup(title: String, category: String, price: String, image: UIImage?, isUrgent: Bool) {
         self.title.text = title
         self.category.text = category
         self.price.text = price
         self.offerImage.image = image
+        if isUrgent {
+            self.backgroundColor = UIColor.orange
+        } else {
+            self.backgroundColor = UIColor.white
+        }
     }
     override class var requiresConstraintBasedLayout: Bool { return true }
     
