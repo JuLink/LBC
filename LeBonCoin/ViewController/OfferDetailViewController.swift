@@ -1,13 +1,13 @@
 //
-//  OffersListViewController.swift
+//  OfferDetailViewController.swift
 //  LeBonCoin
 //
-//  Created by Julien Lebeau on 09/02/2021.
+//  Created by Julien Lebeau on 11/02/2021.
 //
 
 import UIKit
 
-class OffersListViewController: UIViewController {
+class OfferDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

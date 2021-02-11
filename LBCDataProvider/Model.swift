@@ -10,6 +10,11 @@ import Foundation
 public struct Category: Codable {
     public let id: Int
     public let name: String
+    
+    public init(id: Int, name: String) {
+        self.id = id
+        self.name = name
+    }
 }
 
 public struct Offer: Codable {
@@ -35,11 +40,28 @@ public struct Offer: Codable {
         case siret
         case images = "images_url"
     }
+    
+    public init(id: Int, categoryID: Int, title: String, description: String, price: Double, creationDate: String, isUrgent: Bool, siret: String?, images: ImageUrl) {
+        self.id = id
+        self.categoryID = categoryID
+        self.title = title
+        self.description = description
+        self.price = price
+        self.creationDate = creationDate
+        self.isUrgent = isUrgent
+        self.siret = siret
+        self.images = images
+    }
 }
 
 public struct ImageUrl: Codable {
     public let small: String?
     public let thumb: String?
+    
+    public init(small: String?, thumb: String?) {
+        self.small = small
+        self.thumb = thumb
+    }
 }
 
 
