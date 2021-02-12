@@ -27,7 +27,8 @@ class OffersListViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 44
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openFilter))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(openFilter))
+        self.navigationItem.title = NSLocalizedString("Annonces", comment: "")
 
         // Do any additional setup after loading the view.
         viewModel.loadOffers(completion: { _ in
@@ -56,7 +57,7 @@ extension OffersListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: OfferTableViewCell.offerCellReuseIdentifier, for: indexPath) as? OfferTableViewCell {
             let model = self.viewModel.offers[indexPath.row]
-            cell.setup(title: model.title, category: model.category?.name ?? "", price: model.priceString, imageURL: model.thumbImages, isUrgent: model.isUrgent, imageRetriever: self.imageRetriever)
+            cell.setup(title: model.title, category: model.category?.name ?? "", price: model.priceString, imageURL: model.thumbImages, isUrgent: model.isUrgent, creationDate: model.creationDateString, imageRetriever: self.imageRetriever)
             return cell
         }
         return UITableViewCell()

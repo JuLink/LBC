@@ -19,71 +19,136 @@ class OfferTableViewCell: UITableViewCell {
     var category: UILabel = UILabel()
     @UsesAutoLayout
     var price: UILabel = UILabel()
+    @UsesAutoLayout
+    var urgentImage: UIImageView = UIImageView()
+    @UsesAutoLayout
+    var creationDate: UILabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(price)
-        contentView.addSubview(offerImage)
-        contentView.addSubview(category)
-        contentView.addSubview(title)
         
+        let priceConstraints = self.configurePriceLabel()
+        let offerImageConstraints = self.configureOfferImage()
+        let urgencyImageConstraints = self.configureUrgencyImage()
+        let titleConstraints = self.configureTitleLabel()
+        let categoryConstraints = self.configureCategoryLabel()
+        let creationDateconstraints = self.configureCreationDate()
+        
+        self.accessoryType = .disclosureIndicator
+        
+        NSLayoutConstraint.activate(
+            priceConstraints +
+            offerImageConstraints +
+            urgencyImageConstraints +
+            titleConstraints +
+            categoryConstraints +
+            creationDateconstraints +
+            priceConstraints
+        )
+    }
+    
+    private func configurePriceLabel() -> [NSLayoutConstraint] {
+        contentView.addSubview(self.price)
         let priceConstraints = [
-            price.centerXAnchor.constraint(equalTo: offerImage.centerXAnchor),
-            price.topAnchor.constraint(equalTo: offerImage.bottomAnchor, constant: Self.elementVerticalSpacing),
-            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: price.bottomAnchor, constant: Self.contentPadding)
+            self.price.centerXAnchor.constraint(equalTo: self.offerImage.centerXAnchor),
+            self.price.topAnchor.constraint(equalTo: self.offerImage.bottomAnchor, constant: Self.priceVerticalSpacing),
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: price.bottomAnchor, constant: Self.priceVerticalSpacing)
         ]
-        price.textAlignment = .center
+        self.price.textAlignment = .center
+        self.price.textColor = UIColor.accent
+        self.price.font = UIFont.preferredFont(forTextStyle: .callout)
         
-        let imageConstraints = [
-            offerImage.widthAnchor.constraint(equalToConstant: 100),
-            offerImage.heightAnchor.constraint(equalToConstant: 100),
-            offerImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Self.contentPadding),
-            offerImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Self.contentPadding)
-        ]
-        
-        let titleConstraints = [
-            title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Self.contentPadding),
-            title.leadingAnchor.constraint(equalTo: offerImage.trailingAnchor, constant: Self.contentPadding),
-            contentView.trailingAnchor.constraint(equalTo: title.trailingAnchor, constant: Self.contentPadding)
-        ]
-        title.numberOfLines = 0
-        
-        let categoryConstraints = [
-            category.topAnchor.constraint(equalTo: title.bottomAnchor, constant: Self.elementVerticalSpacing),
-            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: category.bottomAnchor, constant: Self.contentPadding),
-            category.leadingAnchor.constraint(equalTo: title.leadingAnchor),
-            category.trailingAnchor.constraint(equalTo: title.trailingAnchor)
-        ]
-        
-        NSLayoutConstraint.activate(imageConstraints + priceConstraints + titleConstraints + categoryConstraints)
+        return priceConstraints
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(title: String, category: String, price: String, imageURL: URL?, isUrgent: Bool, imageRetriever: ImageRetriever) {
+    private func configureOfferImage() -> [NSLayoutConstraint] {
+        contentView.addSubview(self.offerImage)
+        let imageConstraints = [
+            self.offerImage.widthAnchor.constraint(equalToConstant: Self.imageWidthAndHeight),
+            self.offerImage.heightAnchor.constraint(equalToConstant: Self.imageWidthAndHeight),
+            self.offerImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Self.topPadding),
+            self.offerImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Self.horizontalPadding)
+        ]
+        self.offerImage.contentMode = .scaleAspectFill
+        self.offerImage.clipsToBounds = true
+        return imageConstraints
+    }
+    
+    private func configureUrgencyImage() -> [NSLayoutConstraint] {
+        self.contentView.addSubview(self.urgentImage)
+        let urgentImageconstraints = [
+            contentView.trailingAnchor.constraint(equalTo: self.urgentImage.trailingAnchor),
+            self.urgentImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Self.topPadding),
+            self.urgentImage.widthAnchor.constraint(equalToConstant: Self.urgencyImageWidthAndHeight),
+            self.urgentImage.heightAnchor.constraint(equalToConstant: Self.urgencyImageWidthAndHeight)
+        ]
+        return urgentImageconstraints
+    }
+    
+    private func configureTitleLabel() -> [NSLayoutConstraint] {
+        self.contentView.addSubview(self.title)
+        let titleConstraints = [
+            self.title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Self.topPadding),
+            self.title.leadingAnchor.constraint(equalTo: self.offerImage.trailingAnchor, constant: Self.imageHorizontalSpacing),
+            self.urgentImage.leadingAnchor.constraint(equalTo: self.title.trailingAnchor, constant: Self.imageHorizontalSpacing)
+        ]
+        self.title.numberOfLines = 2
+        self.title.textColor = UIColor.primary
+        self.title.font = UIFont.preferredFont(forTextStyle: .title3)
+        return titleConstraints
+    }
+    
+    private func configureCategoryLabel() -> [NSLayoutConstraint] {
+        self.contentView.addSubview(self.category)
+        let categoryConstraints = [
+            self.category.topAnchor.constraint(equalTo: self.title.bottomAnchor),
+            self.category.leadingAnchor.constraint(equalTo: self.title.leadingAnchor),
+            self.category.trailingAnchor.constraint(equalTo: self.title.trailingAnchor)
+        ]
+        self.category.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        self.category.textColor = UIColor.secondary
+        return categoryConstraints
+    }
+    
+    private func configureCreationDate() -> [NSLayoutConstraint] {
+        self.contentView.addSubview(self.creationDate)
+        let creationDateconstraints = [
+            self.creationDate.topAnchor.constraint(equalTo: self.category.bottomAnchor),
+            self.creationDate.leadingAnchor.constraint(equalTo: self.title.leadingAnchor),
+            self.creationDate.trailingAnchor.constraint(equalTo: self.title.trailingAnchor),
+            contentView.bottomAnchor.constraint(greaterThanOrEqualTo: self.creationDate.bottomAnchor, constant: Self.priceVerticalSpacing)
+        ]
+        self.creationDate.font = UIFont.preferredFont(forTextStyle: .caption1)
+        self.creationDate.textColor = UIColor.secondary
+        return creationDateconstraints
+    }
+    
+    func setup(title: String, category: String, price: String, imageURL: URL?, isUrgent: Bool, creationDate: String, imageRetriever: ImageRetriever) {
         self.title.text = title
         self.category.text = category
         self.price.text = price
-        if isUrgent {
-            self.backgroundColor = UIColor.orange
-        } else {
-            self.backgroundColor = UIColor.white
-        }
         self.offerImage.image = nil
-        self.offerImage.contentMode = .scaleAspectFit
         self.imageRetriever = imageRetriever
         self.imageRetriever?.image(for: imageURL) { [weak self] (downloadedImage) in
             if let image = downloadedImage {
                 self?.offerImage.image = image
             }
         }
+        self.urgentImage.image = isUrgent ? UIImage(named: "urgent") : nil
+        self.creationDate.text = creationDate
     }
+    
     override class var requiresConstraintBasedLayout: Bool { return true }
     
-    
-    //MARK: UI Constants
-    static let contentPadding: CGFloat = 16
-    static let elementVerticalSpacing: CGFloat = 8
+    //MARK: - UI Constants
+    static private let topPadding: CGFloat = 10
+    static private let priceVerticalSpacing: CGFloat = 6
+    static private let imageWidthAndHeight: CGFloat = 100
+    static private let horizontalPadding: CGFloat = 16
+    static private let imageHorizontalSpacing: CGFloat = 10
+    static private let urgencyImageWidthAndHeight: CGFloat = 16
 }
