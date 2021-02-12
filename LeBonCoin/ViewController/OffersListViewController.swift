@@ -57,7 +57,7 @@ extension OffersListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: OfferTableViewCell.offerCellReuseIdentifier, for: indexPath) as? OfferTableViewCell {
             let model = self.viewModel.offers[indexPath.row]
-            cell.setup(title: model.title, category: model.category?.name ?? "", price: model.priceString, imageURL: model.thumbImages, isUrgent: model.isUrgent, creationDate: model.creationDateString, imageRetriever: self.imageRetriever)
+            cell.setup(title: model.title, category: model.category?.name ?? "", price: model.priceString, imageURL: model.smallImages, isUrgent: model.isUrgent, creationDate: model.creationDateString, imageRetriever: self.imageRetriever)
             return cell
         }
         return UITableViewCell()
@@ -65,7 +65,7 @@ extension OffersListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let offer = self.viewModel.offers[indexPath.row]
-        let detailViewController = OfferDetailViewController(offer: offer)
+        let detailViewController = OfferDetailViewController(offer: offer, imageRetriever: self.imageRetriever)
         self.splitViewController?.showDetailViewController(detailViewController, sender: self)
         
     }
