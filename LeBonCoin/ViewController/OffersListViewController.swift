@@ -9,9 +9,11 @@ import UIKit
 
 class OffersListViewController: UITableViewController {
     let viewModel: OffersViewModel
+    let imageRetriever: ImageRetriever
     
-    init(viewModel: OffersViewModel = OffersViewModel()) {
+    init(viewModel: OffersViewModel = OffersViewModel(), imageRetriever: ImageRetriever = ImageCacheDownloader()) {
         self.viewModel = viewModel
+        self.imageRetriever = imageRetriever
         super.init(style: .plain)
     }
     
@@ -54,7 +56,7 @@ extension OffersListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: OfferTableViewCell.offerCellReuseIdentifier, for: indexPath) as? OfferTableViewCell {
             let model = self.viewModel.offers[indexPath.row]
-            cell.setup(title: model.title, category: model.category?.name ?? "", price: model.priceString, image: nil, isUrgent: model.isUrgent)
+            cell.setup(title: model.title, category: model.category?.name ?? "", price: model.priceString, imageURL: model.thumbImages, isUrgent: model.isUrgent, imageRetriever: self.imageRetriever)
             return cell
         }
         return UITableViewCell()

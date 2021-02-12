@@ -9,6 +9,7 @@ import UIKit
 
 class OfferTableViewCell: UITableViewCell {
     static let offerCellReuseIdentifier = "OfferTableViewCellID"
+    var imageRetriever: ImageRetriever?
     
     @UsesAutoLayout
     var offerImage: UIImageView = UIImageView()
@@ -61,15 +62,22 @@ class OfferTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(title: String, category: String, price: String, image: UIImage?, isUrgent: Bool) {
+    func setup(title: String, category: String, price: String, imageURL: URL?, isUrgent: Bool, imageRetriever: ImageRetriever) {
         self.title.text = title
         self.category.text = category
         self.price.text = price
-        self.offerImage.image = image
         if isUrgent {
             self.backgroundColor = UIColor.orange
         } else {
             self.backgroundColor = UIColor.white
+        }
+        self.offerImage.image = nil
+        self.offerImage.contentMode = .scaleAspectFit
+        self.imageRetriever = imageRetriever
+        self.imageRetriever?.image(for: imageURL) { [weak self] (downloadedImage) in
+            if let image = downloadedImage {
+                self?.offerImage.image = image
+            }
         }
     }
     override class var requiresConstraintBasedLayout: Bool { return true }
