@@ -15,12 +15,13 @@ public struct UIOffer: Equatable {
     public let price: Double
     public let priceString: String
     public let creationDate: Date
+    public let creationDateString: String
     public let isUrgent: Bool
     public let siret: String?
     public let smallImages: URL?
     public let thumbImages: URL?
     
-    public init(id: Int, category: UICategory?, title: String, description: String, price: Double, priceString: String, creationDate: Date, isUrgent: Bool, siret: String?, smallImages: URL?, thumbImages: URL?) {
+    public init(id: Int, category: UICategory?, title: String, description: String, price: Double, priceString: String, creationDate: Date, creationDateString: String, isUrgent: Bool, siret: String?, smallImages: URL?, thumbImages: URL?) {
         self.id = id
         self.category = category
         self.title = title
@@ -28,6 +29,7 @@ public struct UIOffer: Equatable {
         self.price = price
         self.priceString = priceString
         self.creationDate = creationDate
+        self.creationDateString = creationDateString
         self.isUrgent = isUrgent
         self.siret = siret
         self.smallImages = smallImages
