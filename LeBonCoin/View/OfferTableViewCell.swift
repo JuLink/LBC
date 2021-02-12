@@ -131,14 +131,14 @@ class OfferTableViewCell: UITableViewCell {
         self.title.text = title
         self.category.text = category
         self.price.text = price
-        self.offerImage.image = nil
+        self.offerImage.image = UIImage.emptyImage
         self.imageRetriever = imageRetriever
         self.imageRetriever?.image(for: imageURL) { [weak self] (downloadedImage) in
             if let image = downloadedImage {
                 self?.offerImage.image = image
             }
         }
-        self.urgentImage.image = isUrgent ? UIImage(named: "urgent") : nil
+        self.urgentImage.image = isUrgent ? UIImage.urgencyImage : nil
         self.creationDate.text = creationDate
     }
     
